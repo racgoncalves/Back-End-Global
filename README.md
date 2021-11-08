@@ -236,7 +236,7 @@ Exemplo de body:
 ```
 
 ### @POST – Atualizar o produto se está ocupada ou desocupada pelo mercado Id e localização (retorna o ID do produto caso tenha sucesso, "Produto já está nessa condição" caso já esteja na condição enviada, "Produto não encontrado!" caso não encontre o ID, ou "Condição inválida" caso a condição não seja "Disponível" nem "Indisponível")
-#### ec2-54-233-173-244.sa-east-1.compute.amazonaws.com:8083/status/{mercadoId}/{location}}
+#### ec2-54-233-173-244.sa-east-1.compute.amazonaws.com:8083/status/{mercadoId}/{location}
 Exemplo de retorno:
 ```text
     Disponível
