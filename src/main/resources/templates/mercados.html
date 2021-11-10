@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Global</h1>
+	
+	<h2>Mercados</h2>
+
+	<a href="/mercado/new">Novo Mercado</a>
+
+	<ul th:each="mercado: ${mercados}">
+		<li>
+			<p th:text="${mercado.id}"></p>
+			<p th:text="${mercado.name}"></p>
+			<p th:text="${mercado.email}"></p>
+			<p th:text="${mercado.password}"></p>
+			<p th:text="${mercado.role}"></p>
+			<p th:text="${mercado.address}"></p>
+			<p th:text="${mercado.number}"></p>
+			<p th:text="${mercado.city}"></p>
+			<p th:text="${mercado.state}"></p>
+			<p th:text="${mercado.zipcode}"></p>
+			<p th:text="${mercado.donating}"></p>
+			<p th:text="${mercado.picture}"></p>
+			<p th:text="${mercado.lastUpdate}"></p>
+		</li>
+	</ul>
+
+</body>
+</html>

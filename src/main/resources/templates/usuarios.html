@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<h1>Global</h1>
+
+<h2>Usuários</h2>
+
+<ul th:each="usuario: ${usuarios}">
+    <li>
+        <p th:text="${usuario.id}"></p>
+        <p th:text="${usuario.name}"></p>
+        <p th:text="${usuario.email}"></p>
+        <p th:text="${usuario.password}"></p>
+        <p th:text="${usuario.role}"></p>
+        <p th:text="${usuario.address}"></p>
+        <p th:text="${usuario.number}"></p>
+        <p th:text="${usuario.city}"></p>
+        <p th:text="${usuario.state}"></p>
+        <p th:text="${usuario.zipcode}"></p>
+        <p th:text="${usuario.lastUpdate}"></p>
+    </li>
+</ul>
+
+</body>
+</html>

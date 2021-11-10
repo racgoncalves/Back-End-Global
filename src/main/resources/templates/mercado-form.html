@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Global</h1>
+	
+	<h2>Novo Mercado</h2>
+	
+	<form action="/mercado" method="post" th:object="${mercado}">
+		<label for="name">Nome</label>
+		<input type="text" name="name" id="name" th:field="*{name}">
+		<span th:errors="*{name}"></span>
+
+		<label for="email">E-mail</label>
+		<input type="email" name="email" id="email" th:field="*{email}">
+		<span th:errors="*{email}"></span>
+
+		<label for="password">Senha</label>
+		<input type="password" name="password" id="password" th:field="*{password}">
+		<span th:errors="*{password}"></span>
+
+		<label for="address">Endereço</label>
+		<input type="text" name="address" id="address" th:field="*{address}">
+		<span th:errors="*{address}"></span>
+
+		<label for="number">Número</label>
+		<input type="text" name="number" id="number" th:field="*{number}">
+		<span th:errors="*{number}"></span>
+
+		<label for="city">Cidade</label>
+		<input type="text" name="city" id="city" th:field="*{city}">
+		<span th:errors="*{city}"></span>
+
+		<label for="state">Estado</label>
+		<input type="text" name="state" id="state" th:field="*{state}">
+		<span th:errors="*{state}"></span>
+
+		<label for="zipcode">CEP</label>
+		<input type="text" name="zipcode" id="zipcode" th:field="*{zipcode}">
+		<span th:errors="*{zipcode}"></span>
+
+		<label for="picture">Link da Imagem</label>
+		<input type="text" name="picture" id="picture" th:field="*{picture}">
+		<span th:errors="*{picture}"></span>
+
+		<a href="/mercado">cancelar</a>
+		<button>Salvar</button>
+	</form>
+
+</body>
+</html>

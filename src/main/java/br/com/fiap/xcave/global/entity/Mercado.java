@@ -47,11 +47,12 @@ public class Mercado {
     @DynamoDBAttribute
     private String state;
 
+    @Size(min = 8, message = "O CEP deve ter pelo menos 8 caracteres")
     @DynamoDBAttribute
     private String zipcode;
 
     @DynamoDBAttribute
-    private boolean donating;
+    private boolean donating = true;
 
     @DynamoDBAttribute
     private String picture;

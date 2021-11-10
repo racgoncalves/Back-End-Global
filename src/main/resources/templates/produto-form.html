@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<h1>Global</h1>
+
+<h2>Novo Produto</h2>
+
+<form action="/produto" method="post" th:object="${produto}">
+    <label for="name">Nome</label>
+    <input type="text" name="name" id="name" th:field="*{name}">
+    <span th:errors="*{name}"></span>
+
+    <label for="brand">Marca</label>
+    <input type="text" name="brand" id="brand" th:field="*{brand}">
+    <span th:errors="*{brand}"></span>
+
+    <label for="location">Localização</label>
+    <input type="text" name="location" id="location" th:field="*{location}">
+    <span th:errors="*{location}"></span>
+
+    <label for="mercadoId">Identificação do Mercado</label>
+    <input type="text" name="mercadoId" id="mercadoId" th:field="*{mercadoId}">
+    <span th:errors="*{mercadoId}"></span>
+
+    <a href="/produto">cancelar</a>
+    <button>Salvar</button>
+</form>
+
+</body>
+</html>

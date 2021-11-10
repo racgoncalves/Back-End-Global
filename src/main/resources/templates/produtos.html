@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+</head>
+<body>
+
+<h1>Global</h1>
+
+<h2>Produtos</h2>
+
+<a href="/produto/new">Novo Produto</a>
+
+<ul th:each="produto: ${produtos}">
+    <li>
+        <p th:text="${produto.id}"></p>
+        <p th:text="${produto.mercadoId}"></p>
+        <p th:text="${produto.name}"></p>
+        <p th:text="${produto.brand}"></p>
+        <p th:text="${produto.donating}"></p>
+        <p th:text="${produto.location}"></p>
+        <p th:text="${produto.lastUpdate}"></p>
+    </li>
+</ul>
+
+</body>
+</html>

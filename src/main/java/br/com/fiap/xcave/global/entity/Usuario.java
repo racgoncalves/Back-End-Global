@@ -47,6 +47,7 @@ public class Usuario {
     @DynamoDBAttribute
     private String state;
 
+    @Size(min = 8, message = "O CEP deve ter pelo menos 8 caracteres")
     @DynamoDBAttribute
     private String zipcode;
 
