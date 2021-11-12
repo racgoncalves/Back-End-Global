@@ -22,7 +22,7 @@ public class ProdutoRepository {
 
     public Produto save(Produto produto) {
 
-        if (!checaProdutoByLocationAndMercadoId(produto)) {
+        if (checaProdutoNovoByLocation(produto)) {
             dynamoDBMapper.save(produto);
         }
 
@@ -38,28 +38,34 @@ public class ProdutoRepository {
         return dynamoDBMapper.scan(Produto.class, dynamoDBScanExpression);
     }
 
-    public boolean checaProdutoByLocationAndMercadoId(Produto produtoNovo) {
+    private boolean checaProdutoUpdateByLocation(Produto produtoNovo) {
 
         List<Produto> produtos = mercadoRepository.getProdutosByMercadoId(produtoNovo.getMercadoId());
 
-        for (Produto produto : produtos) {
-            if (produto.getLocation().equals(produtoNovo.getLocation())) {
-                return true;
+        Produto produtoAntigo = getProdutoById(produtoNovo.getId());
+
+        if (produtoAntigo.getLocation().equals(produtoNovo.getLocation())) {
+            return true;
+        } else {
+            for (Produto produto : produtos) {
+                if (produto.getLocation().equals(produtoNovo.getLocation())) {
+                    return false;
+                }
             }
         }
-        return false;
+        return true;
     }
 
-    public boolean checaProdutoByLocation(Produto produtoNovo) {
+    private boolean checaProdutoNovoByLocation(Produto produtoNovo) {
 
         List<Produto> produtos = mercadoRepository.getProdutosByMercadoId(produtoNovo.getMercadoId());
 
         for (Produto produto : produtos) {
             if (produto.getLocation().equals(produtoNovo.getLocation())) {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public Produto getProdutoByMercadoIdAndLocation(String mercadoId, String location) {
@@ -88,7 +94,7 @@ public class ProdutoRepository {
 
     public String update(String id, Produto produto) {
 
-        if (!checaProdutoByLocation(produto)) {
+        if (checaProdutoUpdateByLocation(produto)) {
             try {
                 dynamoDBMapper.save(produto,
                         new DynamoDBSaveExpression()
@@ -113,7 +119,6 @@ public class ProdutoRepository {
                                 new ExpectedAttributeValue(
                                         new AttributeValue().withS(id)
                                 )));
-
     }
 
 }
